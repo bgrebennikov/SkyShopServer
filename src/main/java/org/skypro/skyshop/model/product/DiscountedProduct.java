@@ -1,12 +1,14 @@
 package org.skypro.skyshop.model.product;
 
+import java.util.UUID;
+
 public class DiscountedProduct extends Product {
 
     private final int price;
     private final int discountPercent;
 
-    public DiscountedProduct(String title, int price, int discountPercent) {
-        super(title);
+    public DiscountedProduct(UUID id, String title, int price, int discountPercent) {
+        super(id, title);
 
         if (price <= 0) {
             throw new IllegalArgumentException("price cannot be zero or negative");

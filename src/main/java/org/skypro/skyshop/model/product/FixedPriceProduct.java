@@ -1,11 +1,13 @@
 package org.skypro.skyshop.model.product;
 
+import java.util.UUID;
+
 public class FixedPriceProduct extends Product {
 
     private final static double FIXED_PRICE_PRODUCT = 350;
 
-    public FixedPriceProduct(String title) {
-        super(title);
+    public FixedPriceProduct(UUID id, String title) {
+        super(id, title);
     }
 
 
