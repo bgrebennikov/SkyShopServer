@@ -4,15 +4,18 @@ import org.skypro.skyshop.model.ContentType;
 import org.skypro.skyshop.model.search.Searchable;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class Article implements Searchable {
 
     private final String title;
     private final String body;
+    private final UUID id;
 
-    public Article(String title, String body) {
+    public Article(UUID id, String title, String body) {
         this.title = title;
         this.body = body;
+        this.id = id;
     }
 
     public String getTitle() {
@@ -36,6 +39,11 @@ public class Article implements Searchable {
     @Override
     public String getContentType() {
         return ContentType.ARTICLE.name();
+    }
+
+    @Override
+    public UUID getId() {
+        return id;
     }
 
     @Override

@@ -1,22 +1,24 @@
 package org.skypro.skyshop.model.product;
 
 
-
 import org.skypro.skyshop.model.ContentType;
 import org.skypro.skyshop.model.search.Searchable;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public abstract class Product implements Searchable {
     private final String title;
+    private final UUID id;
 
-    public Product(String title) {
+    public Product(UUID id, String title) {
 
         if (title == null || title.isBlank()) {
             throw new IllegalArgumentException("title cannot be null or blank");
         }
 
         this.title = title;
+        this.id = id;
     }
 
     public String getTitle() {
@@ -40,6 +42,11 @@ public abstract class Product implements Searchable {
     @Override
     public String getContentType() {
         return ContentType.PRODUCT.name();
+    }
+
+    @Override
+    public UUID getId() {
+        return id;
     }
 
     @Override
