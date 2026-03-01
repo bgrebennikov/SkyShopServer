@@ -1,6 +1,7 @@
 package org.skypro.skyshop.model.product;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.skypro.skyshop.model.ContentType;
 import org.skypro.skyshop.model.search.Searchable;
 
@@ -34,11 +35,13 @@ public abstract class Product implements Searchable {
         return "%s: %s%n".formatted(title, getPrice());
     }
 
+    @JsonIgnore
     @Override
     public String getSearchTerm() {
         return title;
     }
 
+    @JsonIgnore
     @Override
     public String getContentType() {
         return ContentType.PRODUCT.name();
