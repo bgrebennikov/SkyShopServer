@@ -18,7 +18,7 @@ public class SearchController {
         this.searchService = searchService;
     }
 
-    @GetMapping("search")
+    @GetMapping("/search")
     public List<SearchResult> search(@RequestParam("pattern") String pattern) {
         return searchService.search(pattern);
     }

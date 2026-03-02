@@ -17,7 +17,7 @@ public class ShopController {
         this.storageService = storageService;
     }
 
-    @GetMapping("products")
+    @GetMapping("/products")
     public Map<UUID, Product> getProducts() {
         return storageService.getProducts();
     }
