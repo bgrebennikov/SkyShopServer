@@ -16,9 +16,9 @@ public class ProductBasket {
         this.productBasketItems = new HashMap<>();
     }
 
-    public void add(String productId) {
+    public void add(UUID productId) {
         productBasketItems.merge(
-                UUID.fromString(productId),
+                productId,
                 1, Integer::sum
         );
     }
