@@ -4,7 +4,6 @@ import org.skypro.skyshop.model.search.SearchResult;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class SearchService {
@@ -29,7 +28,7 @@ public class SearchService {
                             term.toLowerCase().contains(normalizedQuery);
                 })
                 .map(SearchResult::fromSearchable)
-                .collect(Collectors.toList());
+                .toList();
     }
 }
 
