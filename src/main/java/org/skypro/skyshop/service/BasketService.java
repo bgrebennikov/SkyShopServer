@@ -38,12 +38,7 @@ public class BasketService {
 
     public void addProductById(UUID productId) {
         storageService.getProductById(productId)
-                .ifPresentOrElse(
-                        product -> productBasket.add(productId),
-                        () -> {
-                            throw new IllegalArgumentException("Product not found: ID: " + productId);
-                        }
-                );
+                .orElseThrow(() -> new IllegalArgumentException("Product not found: ID:" + productId));
     }
 
 }
