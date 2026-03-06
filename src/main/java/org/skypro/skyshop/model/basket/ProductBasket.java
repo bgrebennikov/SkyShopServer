@@ -17,10 +17,7 @@ public class ProductBasket {
     }
 
     public void add(UUID productId) {
-        productBasketItems.merge(
-                productId,
-                1, Integer::sum
-        );
+        productBasketItems.put(productId, productBasketItems.computeIfAbsent(productId, k -> 0) + 1);
     }
 
     public Map<UUID, Integer> getAll() {
