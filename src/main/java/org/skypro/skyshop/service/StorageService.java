@@ -29,6 +29,10 @@ public class StorageService {
         return articles;
     }
 
+    public Optional<Product> getProductById(UUID productId) {
+        return Optional.ofNullable(products.get(productId));
+    }
+
     public List<Searchable> getSearchableItems() {
         List<Searchable> items = new ArrayList<>();
         items.addAll(getProducts().values());
