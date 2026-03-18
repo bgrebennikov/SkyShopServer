@@ -61,6 +61,8 @@ class BasketServiceTest {
     void shouldReturnEmptyBasket() {
         when(productBasket.getAll()).thenReturn(Collections.emptyMap());
         UserBasket result = basketService.getUserBasket();
+
+        assertThat(result.getTotal()).isZero();
         assertThat(result.getBasketItems()).isEmpty();
     }
 
