@@ -9,6 +9,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.skypro.skyshop.model.search.SearchResult;
 import org.skypro.skyshop.model.search.Searchable;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -46,7 +47,7 @@ class SearchServiceTest {
         Searchable item = mock(Searchable.class);
 
         when(item.getSearchTerm()).thenReturn("Телевизор");
-        when(storageService.getSearchableItems()).thenReturn(List.of(item));
+        when(storageService.getSearchableItems()).thenReturn(Collections.emptyList());
 
         List<SearchResult> results = searchService.search("холодильник");
 
